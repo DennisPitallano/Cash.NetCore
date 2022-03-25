@@ -1,6 +1,5 @@
 ﻿namespace Cash.NetCore.Constants;
 
-
 internal static class Headers
 {
     public const string Authorization = "Authorization";
@@ -24,19 +23,36 @@ internal static class Versions
 internal static class CashModule
 {
     public const string BlockChain = $"{Versions.V5}/blockchain";
+    public const string Control = $"{Versions.V5}/control";
 }
 
 internal static class BlockChainModuleAction
 {
-    public static string GetBlockChainBlockCount = "/getBlockCount";
-    public static string GetChainTips = "/getChainTips";
+    public const string GetBlockChainBlockCount = "/getBlockCount";
+    public const string GetChainTips = "/getChainTips";
 
-    public static string GetMempoolAncestors = "/getMempoolAncestors"; // TODO: for clarification
-    public static string GetTxOutProofSingle = "/getTxOutProofSingle"; // TODO: for clarification
+    public const string GetMempoolAncestors = "/getMempoolAncestors"; // TODO: for clarification
+    public const string GetTxOutProofSingle = "/getTxOutProofSingle"; // TODO: for clarification
 
-    public static string GetTxOut = "/getTxOut";
-    public static string GetBestBlockHash = "/getBestBlockHash";
-    public static string GetBlock = "/getBlock";
-    public static string GetBlockHash = "/getBlockHash";
-    public static string GetBlockchainInfo = "/getBlockchainInfo";
+    public const string GetTxOut = "/getTxOut";
+    public const string GetBestBlockHash = "/getBestBlockHash";
+    public const string GetBlock = "/getBlock";
+    public const string GetBlockHash = "/getBlockHash";
+    public const string GetBlockchainInfo = "/getBlockchainInfo";
+
+    public const string GetMempoolEntry = "/getMempoolEntry"; // TODO: for clarification
+
+    public const string GetDifficulty = "/getDifficulty";
+    public const string GetMempoolInfo = "/getMempoolInfo";
+
+    public const string GetBlockHeader = "/getBlockHeader";
+
+    public const string GetRawMempool = "/getRawMempool"; // TODO: for clarification
+
+
+}
+
+internal static class ControlModuleAction
+{
+    public const string Getnetworkinfo = "/getnetworkinfo";
 }

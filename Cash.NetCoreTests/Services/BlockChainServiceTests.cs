@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Cash.NetCore.Contracts;
 using Cash.NetCore.Extensions;
 using Cash.NetCore.Models.Request.BlockChain;
-using Cash.NetCore.Models.Response.BlockChain;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -71,7 +70,7 @@ public class BlockChainServiceTests : TestBase
         Assert.IsTrue(resultPost2 == null, "Transaction Output is empty");
         Console.WriteLine($"Chain tips: {result.ToJsonFormat()}");
     }
-    
+
     [TestMethod]
     public async Task GetBestBlockHashAsyncTest()
     {
@@ -83,7 +82,8 @@ public class BlockChainServiceTests : TestBase
     [TestMethod]
     public async Task GetBlockAsyncTest()
     {
-        var hash = await _blockChainService!.GetBlockAsync("000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
+        var hash = await _blockChainService!.GetBlockAsync(
+            "000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
         Assert.IsTrue(hash != null, "Hash is not empty");
         Console.WriteLine($"Hash: {hash}");
     }
@@ -91,17 +91,21 @@ public class BlockChainServiceTests : TestBase
     [TestMethod]
     public async Task GetBlockVerbosity1AsyncTest()
     {
-        var blockInfo = await _blockChainService!.GetBlockVerbosity1Async("000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
+        var blockInfo =
+            await _blockChainService!.GetBlockVerbosity1Async(
+                "000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
         Assert.IsTrue(blockInfo != null, "Block Info is not empty");
         Console.WriteLine($"Hash: {blockInfo.ToJsonFormat()}");
     }
-    
+
     [TestMethod]
     public async Task GetBlockVerbosity2AsyncTest()
     {
-        var blockInfo = await _blockChainService!.GetBlockVerbosity2Async("000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
+        var blockInfo =
+            await _blockChainService!.GetBlockVerbosity2Async(
+                "000000000000000002a5fe0bdd6e3f04342a975c0f55e57f97e73bb90041676b");
         Assert.IsTrue(blockInfo != null, "Block Info is not empty");
-       // Console.WriteLine($"Hash: {blockInfo.ToJsonFormat()}");
+        // Console.WriteLine($"Hash: {blockInfo.ToJsonFormat()}");
     }
 
     [TestMethod]
@@ -118,5 +122,65 @@ public class BlockChainServiceTests : TestBase
         var hash = await _blockChainService!.GetBlockChainInfoAsync();
         Assert.IsTrue(hash != null, "Hash is not empty");
         Console.WriteLine($"Hash: {hash.ToJsonFormat()}");
+    }
+
+    [TestMethod]
+    public async Task GetDifficultyAsyncTest()
+    {
+        var result = await _blockChainService!.GetDifficultyAsync();
+        Assert.IsTrue(result != null, "Value is not empty");
+        Console.WriteLine($"Hash: {result}");
+    }
+
+    [TestMethod]
+    public async Task GetMempoolInfoAsyncTest()
+    {
+        var info = await _blockChainService!.GetMempoolInfoAsync();
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+
+    [TestMethod]
+    public async Task GetBlockHeaderVerboseAsyncTest()
+    {
+        var infoVerbose =
+            await _blockChainService!.GetBlockHeaderVerboseAsync(
+                "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201");
+        Assert.IsTrue(infoVerbose != null, "Info is not empty");
+
+        Console.WriteLine($"Hash: {infoVerbose.ToJsonFormat()}");
+    }
+
+    [TestMethod]
+    public async Task GetBlockHeaderAsyncTest()
+    {
+        var info = await _blockChainService!.GetBlockHeaderAsync(
+            "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201");
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+
+    [TestMethod]
+    public async Task GetBlockHeadersAsyncTest()
+    {
+        var info = await _blockChainService!.GetBlockHeadersAsync(new[]
+        {
+            "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+            "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
+        });
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+    
+    [TestMethod]
+    public async Task GetBlockHeadersVerboseAsyncTest()
+    {
+        var info = await _blockChainService!.GetBlockHeadersVerboseAsync(new[]
+        {
+            "000000000000000005e14d3f9fdfb70745308706615cfa9edca4f4558332b201",
+            "00000000000000000568f0a96bf4348847bc84e455cbfec389f27311037a20f3"
+        });
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
     }
 }

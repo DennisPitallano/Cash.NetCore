@@ -1,5 +1,6 @@
 ﻿using Cash.NetCore.Models.Request.BlockChain;
 using Cash.NetCore.Models.Response.BlockChain;
+using Cash.NetCore.Models.Response.Control;
 
 namespace Cash.NetCore.Contracts;
 
@@ -88,4 +89,54 @@ public interface IBlockChainService
     /// </summary>
     /// <returns>Returns an object containing various state info regarding blockchain processing.</returns>
     Task<BlockChainInfo?> GetBlockChainInfoAsync();
+
+    /// <summary>
+    ///     Blockchain - Get difficulty
+    /// </summary>
+    /// <returns>Get the current difficulty value, used to regulate mining power on the network.</returns>
+    Task<decimal?> GetDifficultyAsync();
+
+    /// <summary>
+    ///     Blockchain - Get mempool info
+    /// </summary>
+    /// <returns>Returns details on the active state of the TX memory pool.</returns>
+    Task<MempoolInfo?> GetMempoolInfoAsync();
+
+    /// <summary>
+    ///     Blockchain - Get block header
+    /// </summary>
+    /// <param name="blockhash"></param>
+    /// <returns>
+    ///     If verbose is false (default), returns a string that is serialized, hex-encoded data for blockheader 'hash'. If
+    ///     verbose is true, returns an Object with information about blockheader hash
+    /// </returns>
+    Task<string?> GetBlockHeaderAsync(string blockhash);
+
+    /// <summary>
+    ///     Blockchain - Get single block header
+    /// </summary>
+    /// <param name="blockhash"></param>
+    /// <returns>
+    ///     If verbose is false (default), returns a string that is serialized, hex-encoded data for blockheader 'hash'. If
+    ///     verbose is true, returns an Object with information about blockheader hash
+    /// </returns>
+    Task<BlockHeader?> GetBlockHeaderVerboseAsync(string blockhash);
+
+    /// <summary>
+    ///     Blockchain - Get single block header
+    /// </summary>
+    /// <returns>
+    ///     If verbose is false (default), returns a string that is serialized, hex-encoded data for blockheader 'hash'. If
+    ///     verbose is true, returns an Object with information about blockheader hash
+    /// </returns>
+    Task<IEnumerable<string>?> GetBlockHeadersAsync(string[] blockhashes);
+
+    /// <summary>
+    ///     Blockchain - Get multiple block headers
+    /// </summary>
+    /// <returns>
+    ///     If verbose is false (default), returns a string that is serialized, hex-encoded data for blockheader 'hash'. If
+    ///     verbose is true, returns an Object with information about blockheader hash
+    /// </returns>
+    Task<IEnumerable<BlockHeader>?> GetBlockHeadersVerboseAsync(string[] blockhashes);
 }

@@ -159,4 +159,91 @@ public class BlockChainService : BaseHttpClient, IBlockChainService
         var result = await JsonSerializer.DeserializeAsync<BlockChainInfo>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<decimal?> GetDifficultyAsync()
+    {
+        var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetDifficulty);
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<decimal>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<MempoolInfo?> GetMempoolInfoAsync()
+    {
+        var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetMempoolInfo);
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<MempoolInfo>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<string?> GetBlockHeaderAsync(string blockhash)
+    {
+        var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetBlockHeader)
+            .AddParam(blockhash);
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<string>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<BlockHeader?> GetBlockHeaderVerboseAsync(string blockhash)
+    {
+        var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetBlockHeader)
+            .AddParam(blockhash).AddQueryString("verbose", "true");
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<BlockHeader>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<string>?> GetBlockHeadersAsync(string[] blockhashes)
+    {
+        using var response = await CashHttpClient.PostAsJsonAsync($"{_cashModule}"
+                .AddParam(BlockChainModuleAction.GetBlockHeader), new
+            {
+                hashes = blockhashes
+            })
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<IEnumerable<string>>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<BlockHeader>?> GetBlockHeadersVerboseAsync(string[] blockhashes)
+    {
+        using var response = await CashHttpClient.PostAsJsonAsync($"{_cashModule}"
+                .AddParam(BlockChainModuleAction.GetBlockHeader), new
+            {
+                hashes = blockhashes,
+                verbose = true
+            })
+            .ConfigureAwait(false);
+
+        response.EnsureSuccessStatusCode();
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<IEnumerable<BlockHeader>>(responseStream);
+        return result;
+    }
 }

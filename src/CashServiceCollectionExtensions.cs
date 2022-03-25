@@ -5,12 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Cash.NetCore;
 
 /// <summary>
-/// 
 /// </summary>
 public static class CashServiceCollectionExtensions
 {
     /// <summary>
-    ///  AddCashService CollectionExtensions
+    ///     AddCashService CollectionExtensions
     /// </summary>
     /// <param name="services">IServiceCollection</param>
     /// <param name="configuration">IConfiguration</param>
@@ -30,5 +29,6 @@ public static class CashServiceCollectionExtensions
         });
 
         services.AddHttpClient<IBlockChainService, BlockChainService>(configureClient);
+        services.AddHttpClient<IControlService, ControlService>(configureClient);
     }
 }
