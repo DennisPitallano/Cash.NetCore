@@ -161,6 +161,34 @@ public class BlockChainService : BaseHttpClient, IBlockChainService
     }
 
     /// <inheritdoc />
+    public async Task<IEnumerable<MempoolEntry>?> GetMempoolEntryAsync(string[] txIds)
+    {
+        using var response = await CashHttpClient.PostAsJsonAsync($"{_cashModule}"
+                .AddParam(BlockChainModuleAction.GetMempoolEntry), new
+            {
+                txids = txIds
+            })
+            .ConfigureAwait(false);
+        if (!response.IsSuccessStatusCode) return null;
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<IEnumerable<MempoolEntry>>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
+    public async Task<MempoolEntry?> GetMempoolEntryAsync(string txId)
+    {
+        var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetMempoolEntry)
+            .AddParam(txId);
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+        if (!response.IsSuccessStatusCode) return null;
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<MempoolEntry>(responseStream);
+        return result;
+    }
+
+    /// <inheritdoc />
     public async Task<decimal?> GetDifficultyAsync()
     {
         var queryParameters = $"{_cashModule}".AddParam(BlockChainModuleAction.GetDifficulty);

@@ -1,6 +1,5 @@
 ﻿using Cash.NetCore.Models.Request.BlockChain;
 using Cash.NetCore.Models.Response.BlockChain;
-using Cash.NetCore.Models.Response.Control;
 
 namespace Cash.NetCore.Contracts;
 
@@ -89,6 +88,20 @@ public interface IBlockChainService
     /// </summary>
     /// <returns>Returns an object containing various state info regarding blockchain processing.</returns>
     Task<BlockChainInfo?> GetBlockChainInfoAsync();
+
+    /// <summary>
+    ///     Blockchain - Get bulk mempool entry
+    /// </summary>
+    /// <param name="txIds">txIds</param>
+    /// <returns>Returns mempool data for multiple transactions</returns>
+    Task<IEnumerable<MempoolEntry>?> GetMempoolEntryAsync(string[] txIds);
+    
+    /// <summary>
+    ///     Blockchain - Get single mempool entry
+    /// </summary>
+    /// <param name="txId">txId</param>
+    /// <returns>Returns mempool data for multiple transactions</returns>
+    Task<MempoolEntry?> GetMempoolEntryAsync(string txId);
 
     /// <summary>
     ///     Blockchain - Get difficulty

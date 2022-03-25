@@ -24,6 +24,7 @@ internal static class CashModule
 {
     public const string BlockChain = $"{Versions.V5}/blockchain";
     public const string Control = $"{Versions.V5}/control";
+    public const string ElectrumX = $"{Versions.V5}/electrumx";
 }
 
 internal static class BlockChainModuleAction
@@ -40,7 +41,7 @@ internal static class BlockChainModuleAction
     public const string GetBlockHash = "/getBlockHash";
     public const string GetBlockchainInfo = "/getBlockchainInfo";
 
-    public const string GetMempoolEntry = "/getMempoolEntry"; // TODO: for clarification
+    public const string GetMempoolEntry = "/getMempoolEntry";
 
     public const string GetDifficulty = "/getDifficulty";
     public const string GetMempoolInfo = "/getMempoolInfo";
@@ -48,11 +49,31 @@ internal static class BlockChainModuleAction
     public const string GetBlockHeader = "/getBlockHeader";
 
     public const string GetRawMempool = "/getRawMempool"; // TODO: for clarification
-
-
 }
 
 internal static class ControlModuleAction
 {
     public const string Getnetworkinfo = "/getnetworkinfo";
+}
+
+internal static class DSProofModuleAction
+{
+    public const string GetDSProof = "/getdsproof"; // TODO: for clarification
+}
+
+internal static class ElectrumXModuleAction
+{
+    public const string GetDSProof = "/tx/broadcast"; // TODO: for clarification
+
+    public const string GetElectrumXBlockHeadersCount = "/block/headers";
+
+    public const string GetBalance = "/balance";
+
+    public const string GetTransactions = "/transactions";
+
+    public const string  GetTransactionDetails = "/tx/data";
+
+    public const string GetUnConfirmed = "/unconfirmed";
+
+    public const string GetUnConfirmedTransactions = "/utxos";
 }

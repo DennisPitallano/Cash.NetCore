@@ -125,6 +125,26 @@ public class BlockChainServiceTests : TestBase
     }
 
     [TestMethod]
+    public async Task GetMempoolEntryAsyncTest()
+    {
+        var info = await _blockChainService!.GetMempoolEntryAsync(new[]
+        {
+            "960c18c38e6947c7cc6a2abfe2448e223ce5908b246af1b7a49b20c0c8242565",
+            "bc7e9459debf330460a531730b1776f363db1223d2215d73ed239ae0418f6514"
+        });
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+    
+    [TestMethod]
+    public async Task GetMempoolSingleEntryAsyncTest()
+    {
+        var info = await _blockChainService!.GetMempoolEntryAsync("5fd16a623c9faa985afbeb5f5831944a7e65669ba63fbb48b0433c54e3dba8fe");
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+    
+    [TestMethod]
     public async Task GetDifficultyAsyncTest()
     {
         var result = await _blockChainService!.GetDifficultyAsync();
