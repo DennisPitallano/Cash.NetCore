@@ -25,6 +25,7 @@ internal static class CashModule
     public const string BlockChain = $"{Versions.V5}/blockchain";
     public const string Control = $"{Versions.V5}/control";
     public const string ElectrumX = $"{Versions.V5}/electrumx";
+    public const string Encryption = $"{Versions.V5}/encryption";
 }
 
 internal static class BlockChainModuleAction
@@ -56,14 +57,14 @@ internal static class ControlModuleAction
     public const string Getnetworkinfo = "/getnetworkinfo";
 }
 
-internal static class DSProofModuleAction
+internal static class DsProofModuleAction
 {
-    public const string GetDSProof = "/getdsproof"; // TODO: for clarification
+    public const string GetDsProof = "/getdsproof"; // TODO: for clarification
 }
 
 internal static class ElectrumXModuleAction
 {
-    public const string GetDSProof = "/tx/broadcast"; // TODO: for clarification
+    public const string GetDsProof = "/tx/broadcast"; // TODO: for clarification
 
     public const string GetElectrumXBlockHeadersCount = "/block/headers";
 
@@ -76,4 +77,9 @@ internal static class ElectrumXModuleAction
     public const string GetUnConfirmed = "/unconfirmed";
 
     public const string GetUnConfirmedTransactions = "/utxos";
+}
+
+internal static class EncryptionModuleAction
+{
+    public const string PublicKey = "/publickey";
 }
