@@ -26,6 +26,7 @@ internal static class CashModule
     public const string Control = $"{Versions.V5}/control";
     public const string ElectrumX = $"{Versions.V5}/electrumx";
     public const string Encryption = $"{Versions.V5}/encryption";
+    public const string Mining = $"{Versions.V5}/mining";
 }
 
 internal static class BlockChainModuleAction
@@ -82,4 +83,10 @@ internal static class ElectrumXModuleAction
 internal static class EncryptionModuleAction
 {
     public const string PublicKey = "/publickey";
+}
+
+internal static class MiningModuleAction
+{
+    public const string GetMiningInfo = "/getmininginfo";
+    public const string GetNetworkHashps = "/getNetworkHashps";
 }
