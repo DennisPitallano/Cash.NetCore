@@ -34,5 +34,6 @@ public static class CashServiceCollectionExtensions
         services.AddHttpClient<IEncryptionService, EncryptionService>(configureClient);
         services.AddHttpClient<IMiningService, MiningService>(configureClient);
         services.AddHttpClient<IPsfSlpService, PsfSlpService>(configureClient);
+        services.AddHttpClient<IPriceService, PriceService>(configureClient);
     }
 }

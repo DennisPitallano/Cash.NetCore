@@ -27,7 +27,8 @@ internal static class CashModule
     public const string ElectrumX = $"{Versions.V5}/electrumx";
     public const string Encryption = $"{Versions.V5}/encryption";
     public const string Mining = $"{Versions.V5}/mining";
-    public const string PsfSlp = $"{Versions.V5}/psf/slp";
+    public const string PsfSlp = $"{Versions.V5}/psf/slp"; 
+    public const string Price = $"{Versions.V5}/price";
 }
 
 internal static class BlockChainModuleAction
@@ -98,4 +99,11 @@ internal static class PsfSlpModuleAction
     public const string Token = "/token";
     public const string Address = "/address";
     public const string TransactionId = "/txid";
+}
+
+internal static class PriceModuleAction
+{
+    public const string GetRates = "/rates";
+    public const string GetBchUsdPrice = "/usd";
+    public const string GeteCashUsdPrice = "/bchausd";
 }
