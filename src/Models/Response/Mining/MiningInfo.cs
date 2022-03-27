@@ -9,7 +9,7 @@ public class MiningInfo
     ///     Blocks
     /// </summary>
     [JsonPropertyName("blocks")]
-    public int Blocks { get; set; }
+    public long Blocks { get; set; }
 
     /// <summary>
     ///     CurrentBlockSize
@@ -27,7 +27,7 @@ public class MiningInfo
     ///     Difficulty
     /// </summary>
     [JsonPropertyName("difficulty")]
-    public double Difficulty { get; set; }
+    public decimal Difficulty { get; set; }
 
     /// <summary>
     ///     networkhashps

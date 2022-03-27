@@ -21,9 +21,17 @@ public class MiningServiceTests : TestBase
     [TestMethod]
     public async Task GetNetworkHashpsAsyncTest()
     {
-        var info = await _miningService!.GetNetworkHashpsAsync(120,-1);
-        var info1 = await _miningService!.GetNetworkHashpsAsync(120,1);
-        Assert.IsTrue(info >0, "Info is not empty");
+        var info = await _miningService!.GetNetworkHashpsAsync(120, -1);
+        var info1 = await _miningService!.GetNetworkHashpsAsync(120, 1);
+        Assert.IsTrue(info > 0, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
+
+    [TestMethod]
+    public async Task GetMiningInfoAsyncTest()
+    {
+        var info = await _miningService!.GetMiningInfoAsync();
+        Assert.IsTrue(info != null, "Info is not empty");
         Console.WriteLine($"Hash: {info.ToJsonFormat()}");
     }
 }

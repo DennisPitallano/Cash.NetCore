@@ -31,7 +31,7 @@ public class MiningService : BaseHttpClient, IMiningService
     /// <inheritdoc />
     public async Task<MiningInfo?> GetMiningInfoAsync()
     {
-        var queryParameters = $"{_cashModule}".AddParam(MiningModuleAction.GetNetworkHashps);
+        var queryParameters = $"{_cashModule}".AddParam(MiningModuleAction.GetMiningInfo);
         using var response = await CashHttpClient.GetAsync($"{queryParameters}")
             .ConfigureAwait(false);
 

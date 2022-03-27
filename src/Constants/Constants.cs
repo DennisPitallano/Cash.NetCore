@@ -27,6 +27,7 @@ internal static class CashModule
     public const string ElectrumX = $"{Versions.V5}/electrumx";
     public const string Encryption = $"{Versions.V5}/encryption";
     public const string Mining = $"{Versions.V5}/mining";
+    public const string PsfSlp = $"{Versions.V5}/psf/slp";
 }
 
 internal static class BlockChainModuleAction
@@ -89,4 +90,12 @@ internal static class MiningModuleAction
 {
     public const string GetMiningInfo = "/getmininginfo";
     public const string GetNetworkHashps = "/getNetworkHashps";
+}
+
+internal static class PsfSlpModuleAction
+{
+    public const string Status = "/status";
+    public const string Token = "/token";
+    public const string Address = "/address";
+    public const string TransactionId = "/txid";
 }

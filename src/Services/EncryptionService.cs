@@ -1,11 +1,10 @@
 ﻿using Cash.NetCore.Extensions;
-using Cash.NetCore.Models.Response.ElectrumX;
 using Cash.NetCore.Models.Response.Encryption;
 
 namespace Cash.NetCore.Services;
 
 /// <inheritdoc cref="IEncryptionService" />
-public class EncryptionService: BaseHttpClient, IEncryptionService
+public class EncryptionService : BaseHttpClient, IEncryptionService
 {
     private readonly string _cashModule;
 

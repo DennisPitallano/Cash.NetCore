@@ -33,6 +33,6 @@ public static class CashServiceCollectionExtensions
         services.AddHttpClient<IElectrumXService, ElectrumXService>(configureClient);
         services.AddHttpClient<IEncryptionService, EncryptionService>(configureClient);
         services.AddHttpClient<IMiningService, MiningService>(configureClient);
-
+        services.AddHttpClient<IPsfSlpService, PsfSlpService>(configureClient);
     }
 }
