@@ -46,4 +46,16 @@ public class SlpService: BaseHttpClient, ISlpService
         var result = await JsonSerializer.DeserializeAsync<IEnumerable<SlpConvertAddress>>(responseStream);
         return result;
     }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<SlpTokenWhitelist>?> GetTokenWhitelistAsync()
+    {
+        var queryParameters = $"{_cashModule}".AddParam(SlpModuleAction.SlpWhitelist);
+        using var response = await CashHttpClient.GetAsync($"{queryParameters}")
+            .ConfigureAwait(false);
+
+        await using var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+        var result = await JsonSerializer.DeserializeAsync<IEnumerable<SlpTokenWhitelist>>(responseStream);
+        return result;
+    }
 }

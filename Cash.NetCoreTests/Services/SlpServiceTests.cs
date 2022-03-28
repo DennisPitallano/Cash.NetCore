@@ -38,4 +38,12 @@ public class SlpServiceTests : TestBase
         Assert.IsTrue(info != null, "Info is not empty");
         Console.WriteLine($"Hash: {info.ToJsonFormat()}");
     }
+
+    [TestMethod]
+    public async Task GetTokenWhitelistAsyncTest()
+    {
+        var info = await _slpService!.GetTokenWhitelistAsync();
+        Assert.IsTrue(info != null, "Info is not empty");
+        Console.WriteLine($"Hash: {info.ToJsonFormat()}");
+    }
 }

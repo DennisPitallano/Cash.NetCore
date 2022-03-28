@@ -1,7 +1,7 @@
 ﻿namespace Cash.NetCore.Models.Response.BlockChain;
 
 /// <summary>
-/// BlockChainInfo
+///     BlockChainInfo
 /// </summary>
 public class BlockChainInfo
 {
@@ -65,7 +65,11 @@ public class BlockChainInfo
     [JsonPropertyName("size_on_disk")]
     public long SizeOnDisk { get; set; }
 
-    [JsonPropertyName("pruned")] public bool Pruned { get; set; }
+    /// <summary>
+    ///     pruned
+    /// </summary>
+    [JsonPropertyName("pruned")]
+    public bool Pruned { get; set; }
 
     /// <summary>
     ///     softforks
@@ -77,6 +81,12 @@ public class BlockChainInfo
     ///     bip9softforks
     /// </summary>
     public IEnumerable<Bip9SoftForks>? Bip9SoftForks { get; set; }
+
+    /// <summary>
+    /// warnings
+    /// </summary>
+    [JsonPropertyName("warnings")]
+    public string? Warnings { get; set; }
 }
 
 /// <summary>

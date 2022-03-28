@@ -37,5 +37,6 @@ public static class CashServiceCollectionExtensions
         services.AddHttpClient<IPriceService, PriceService>(configureClient);
         services.AddHttpClient<IRawTransactionService, RawTransactionService>(configureClient);
         services.AddHttpClient<ISlpService, SlpService>(configureClient);
+        services.AddHttpClient<IUtilService, UtilService>(configureClient);
     }
 }

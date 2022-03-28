@@ -29,7 +29,7 @@ public interface IBlockChainService
     //TODO Blockchain - Get Tx Out Proof
 
     /// <summary>
-    ///     Block chain - Get Tx Out
+    ///     Block chain - Get Tx Out (Get)
     /// </summary>
     /// <param name="txId"> Transaction id (required) </param>
     /// <param name="n">Output number (required)</param>
@@ -39,7 +39,7 @@ public interface IBlockChainService
 
 
     /// <summary>
-    ///     Block chain - Get Tx Out
+    ///     Block chain - Get Tx Out (Post)
     /// </summary>
     /// <param name="param">TransactionOutputRequest</param>
     /// <returns>Returns details about an unspent transaction output.</returns>

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Response\Mining\" />
+    <Folder Include="Models\Response\Util\" />
   </ItemGroup>
 
 </Project>

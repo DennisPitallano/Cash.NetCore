@@ -1,13 +1,5 @@
 ﻿namespace Cash.NetCore.Constants;
 
-internal static class Headers
-{
-    public const string Authorization = "Authorization";
-    public const string ContentType = "Content-Type";
-    public const string Accept = "Accept";
-    public const string Bearer = "Bearer";
-}
-
 internal static class ContentTypes
 {
     public const string FormUrlEncoded = "application/x-www-form-urlencoded";
@@ -31,6 +23,7 @@ internal static class CashModule
     public const string Price = $"{Versions.V5}/price";
     public const string RawTransaction = $"{Versions.V5}/rawtransactions";
     public const string Slp = $"{Versions.V5}/slp";
+    public const string Util = $"{Versions.V5}/util";
 }
 
 internal static class BlockChainModuleAction
@@ -124,4 +117,12 @@ internal static class SlpModuleAction
 {
     public const string SlpConvert= "/convert";
     public const string SlpWhitelist = "/whitelist";
+    public const string ValidateTxid2 = "/validateTxid2"; // TODO: for clarification
+
+    public const string GenerateSendOpReturn = "/generateSendOpReturn"; // TODO: for clarification
+}
+
+internal static class UtilModuleAction
+{
+    public const string ValidateAddress= "/validateAddress";
 }
