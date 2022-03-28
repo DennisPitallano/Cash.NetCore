@@ -29,6 +29,7 @@ internal static class CashModule
     public const string Mining = $"{Versions.V5}/mining";
     public const string PsfSlp = $"{Versions.V5}/psf/slp"; 
     public const string Price = $"{Versions.V5}/price";
+    public const string RawTransaction = $"{Versions.V5}/rawtransactions";
 }
 
 internal static class BlockChainModuleAction
@@ -106,4 +107,14 @@ internal static class PriceModuleAction
     public const string GetRates = "/rates";
     public const string GetBchUsdPrice = "/usd";
     public const string GeteCashUsdPrice = "/bchausd";
+}
+
+
+internal static class RawTransactionModuleAction
+{
+    public const string DecodeScript = "/decodeScript";
+    public const string DecodeRawTransaction = "/decodeRawTransaction";
+    public const string GetRawTransaction = "/getRawTransaction";
+
+    public const string SendRawTransaction = "/sendRawTransaction"; // TODO : for clarification
 }
