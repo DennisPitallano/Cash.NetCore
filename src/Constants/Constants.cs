@@ -30,6 +30,7 @@ internal static class CashModule
     public const string PsfSlp = $"{Versions.V5}/psf/slp"; 
     public const string Price = $"{Versions.V5}/price";
     public const string RawTransaction = $"{Versions.V5}/rawtransactions";
+    public const string Slp = $"{Versions.V5}/slp";
 }
 
 internal static class BlockChainModuleAction
@@ -117,4 +118,10 @@ internal static class RawTransactionModuleAction
     public const string GetRawTransaction = "/getRawTransaction";
 
     public const string SendRawTransaction = "/sendRawTransaction"; // TODO : for clarification
+}
+
+internal static class SlpModuleAction
+{
+    public const string SlpConvert= "/convert";
+    public const string SlpWhitelist = "/whitelist";
 }
