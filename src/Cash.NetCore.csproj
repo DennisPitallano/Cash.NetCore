@@ -6,7 +6,22 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <ApplicationIcon>Cash.NetCore.ico</ApplicationIcon>
+    <Description>BCH API Wrapper for .NetCore</Description>
+    <Authors>Dennis Pitallano</Authors>
+    <Copyright>Copyright © 2022 Oragon 🌶</Copyright>
+    <PackageProjectUrl>https://github.com/DennisPitallano/Cash.NetCore</PackageProjectUrl>
+    <PackageIcon>Cash.NetCore.png</PackageIcon>
+    <PackageReadmeFile>RELEASED.md</PackageReadmeFile>
+    <RepositoryType>https://github.com/DennisPitallano/Cash.NetCore</RepositoryType>
+    <PackageTags>.netcore,cash,ecash,crypto,api,wrapper,.net,blockchain,cryptocurrency,library,csharp,wrapper-api,bch,bitcoin-api,api,bitcoin cash, bitcoin</PackageTags>
+    <PackageReleaseNotes>https://github.com/DennisPitallano/Cash.NetCore</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/DennisPitallano/Cash.NetCore</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Cash.NetCore.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
@@ -17,6 +32,20 @@
   <ItemGroup>
     <Folder Include="Models\Response\Mining\" />
     <Folder Include="Models\Response\Util\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\RELEASED.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Cash.NetCore.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
