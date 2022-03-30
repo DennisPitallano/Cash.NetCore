@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Cash.NetCore.Contracts;
 using Cash.NetCore.Extensions;
+using Cash.NetCore.Models.Response.Mining;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -31,6 +32,17 @@ public class MiningServiceTests : TestBase
     public async Task GetMiningInfoAsyncTest()
     {
         var info = await _miningService!.GetMiningInfoAsync();
+        var miningInfo = new MiningInfo
+        {
+            Blocks = 734236,
+            CurrentBlockSize = 0,
+            CurrentBlockTx = 0,
+           Difficulty = (decimal) 227336239671.5679,
+            Networkhashps = 1579123811663756000,
+           Pooledtx = 2,
+            Chain = "main",
+            Warnings = ""
+        };
         Assert.IsTrue(info != null, "Info is not empty");
         Console.WriteLine($"Hash: {info.ToJsonFormat()}");
     }

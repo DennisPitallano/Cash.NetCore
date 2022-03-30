@@ -84,6 +84,9 @@ public class NetworkInfo
     public string? Warnings { get; set; }
 }
 
+/// <summary>
+/// Network
+/// </summary>
 public class Network
 {
     /// <summary>

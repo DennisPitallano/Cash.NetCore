@@ -1,12 +1,4 @@
-# <img title="" src="https://raw.githubusercontent.com/DennisPitallano/Cash.NetCore/main/src/Cash.NetCore.png" alt="" align="right" width="204">Cash.🅽🅴🆃🅲🅾🆁🅴
-
-BCH API Wrapper for .NetCore.
-
-For more details, visit [BCH API](https://api.fullstack.cash/)
-
-[![cash.netcore on fuget.org](https://www.fuget.org/packages/cash.netcore/badge.svg)](https://www.fuget.org/packages/cash.netcore) [![Nuget](https://img.shields.io/nuget/v/Cash.NetCore?logo=nuget)](https://www.nuget.org/packages/Cash.NetCore) ![Nuget](https://img.shields.io/nuget/dt/Cash.NetCore)
-
-# # 🐲Cash API ENDPOINTS:
+## 🐲Cash API ENDPOINTS:
 
 **Current Version** `version 1.0.0`
 
@@ -31,26 +23,6 @@ For more details, visit [BCH API](https://api.fullstack.cash/)
 - [x] [💰Get single block header (Default))](https://dennispitallano.github.io/docs/cash-netcore/blockchain-api#get-single-block-header-default)
 - [x] [💰Get single block header (Verbose)](https://dennispitallano.github.io/docs/cash-netcore/blockchain-api#get-single-block-header-verbose)
 
-# Installation
 
-1. Download and Install the latest `Cash.NetCore` from [NuGet](https://www.nuget.org/packages/Cash.NetCore/) using Package Manager, CLI or by adding it to Package Reference:
-   
-   ```shell
-   <PackageReference Include="Cash.NetCore" Version="1.0.0" />
-   ```
-   
-   ```shell
-   dotnet add package Cash.NetCore --version 1.0.0
-   ```
-   
-   ```shell
-   PM> Install-Package Cash.NetCore -Version 1.0.0
-   ```
 
-2. Import the following namespace in the class:
-   
-   ```c#
-   using Cash.NetCore;
-   ```
-
-## See the detailed guide [here](https://dennispitallano.github.io/docs/cash-netcore/cashgetstarted).
+See the detailed guide [here](https://dennispitallano.github.io/docs/cash-netcore/cashgetstarted).
